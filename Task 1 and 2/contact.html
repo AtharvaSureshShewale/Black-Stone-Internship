@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url("contact3.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: auto;
+            height: auto;
+        }
+
+        #heading {
+            font-weight: bold;
+            font-family: sans-serif;
+            padding-top: 20px;
+            padding-left: 40px;
+            color: white;
+        }
+
+        .Form {
+            font-family: sans-serif;
+            padding-top: 5px;
+            padding-left: 40px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            color: white;
+            font-size: 35px;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        .submit {
+            border: 2px solid grey;
+            background: none;
+            color: white;
+            font-size: 20px;
+            border-radius: 6px;
+            width: 175px;
+            padding: 6px 0;
+            cursor: pointer;
+        }
+
+        .form input {
+            margin: 10px 0;
+            width: 80%;
+            border: 2px solid grey;
+            border-radius: 6px;
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.724);
+        }
+
+        .form .submit {
+            margin: 10px 0;
+            width: 20%;
+            border: 2px solid grey;
+            border-radius: 6px;
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.724);
+        }
+
+        .form textarea {
+            margin: 30px 0;
+            width: 80%;
+            border: 2px solid grey;
+            border-radius: 6px;
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.724);
+        }
+
+        .button {
+            width: 180px;
+        }
+
+    </style>
+    <script>
+        function validateForm() {
+            var name = document.forms["form"]["Name"].value;
+            var phoneNo = document.forms["form"]["PhoneNo"].value;
+            var email = document.forms["form"]["Email"].value;
+
+            // Regular expression for phone number validation (10-digit number)
+            var phoneNoPattern = /^\d{10}$/;
+
+            // Regular expression for email validation
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (name.trim() === "") {
+                alert("Please enter your Name.");
+                return false;
+            }
+
+            if (!phoneNo.match(phoneNoPattern)) {
+                alert("Please enter a valid Phone Number.");
+                return false;
+            }
+
+            if (!email.match(emailPattern)) {
+                alert("Please enter a valid Email Address.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="heading">Contact Us</h1>
+    <main>
+        <div class="Form">
+            <form name="form" class="form" method="post" onsubmit="return validateForm()"
+                action="https://script.google.com/macros/s/AKfycbzR7lqZJJOwCmTi7oJNGrd3yQrE8-UZoq0-XiPFAF4b3HXqUQ1_ueOCdrzodAZaKrr_3g/exec">
+                <input name="Name" type="text" placeholder="Enter your Name" required>
+                <input name="PhoneNo" type="text" placeholder="Enter your Phone Number" required>
+                <input name="Email" type="email" placeholder="Enter your Email" required>
+                <textarea cols="20" rows="5" name="Message" type="text" placeholder="Enter your Message"
+                    required></textarea>
+                <input class="submit" value="Submit" type="submit">
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>
